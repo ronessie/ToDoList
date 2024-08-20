@@ -9,6 +9,7 @@ function App() {
         <div className="App">
             <Card className="App-card">
                 <CardBody>
+                    <h1 className={"LogIn-text"}>Registration</h1>
                     <div className="LogIn-items">
                         <Input
                             variant={"underlined"}
