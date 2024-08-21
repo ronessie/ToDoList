@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
+import {Link} from "@nextui-org/link";
 import {Card, CardBody} from "@nextui-org/react";
 import './App.css';
 
@@ -15,14 +16,14 @@ function App() {
                             variant={"underlined"}
                             type="username"
                             label="Username"
-                            defaultValue="name"
+                            placeholder="name"
                             className="LogIn-input"
                         /><br/>
                         <Input
                             variant={"underlined"}
                             type="email"
                             label="Email"
-                            defaultValue="name@gmail.com"
+                            placeholder="name@gmail.com"
                             className="LogIn-input"
                         /><br/>
                         <Input
@@ -32,7 +33,9 @@ function App() {
                             className="LogIn-input"
                         /><br/>
                     </div>
-                    <Button radius={"sm"} className="LogIn-button" variant={"shadow"}>Register</Button>
+                    <Button radius={"sm"} className="LogIn-button" variant={"shadow"}>Register</Button><br/>
+                    {/*<div style={{textAlign: "center"}}>Don't have an account yet? <Link>Register now</Link></div>*/}
+                    <div style={{textAlign: "center"}}>Already have an account? <Link>Sign in</Link></div>
                 </CardBody>
             </Card>
         </div>
