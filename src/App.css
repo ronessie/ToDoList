@@ -15,6 +15,7 @@ body {
     color: white;
     font-size: 18px;
     max-width: 80%;
+    margin-bottom: -13px;
 }
 
 .SignIn-items {
@@ -28,6 +29,8 @@ body {
 }
 
 .Rainbow-text {
+    margin-bottom: 10px;
+    margin-top: 10px;
     text-align: center;
     font-size: 30px;
     background: linear-gradient(to top right, #ec4899, #f59e0b);
@@ -40,4 +43,5 @@ body {
 .SignIn-link {
     text-align: center;
     font-size: 14px;
+    cursor: default;
 }
