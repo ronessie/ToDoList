@@ -17,6 +17,8 @@ function SignIn(props: { setVisability: Dispatch<SetStateAction<string>> }) {
                             label="Username"
                             placeholder="name"
                             className="SignIn-input"
+                            maxLength={28}
+                            title={"Max length 28"}
                         /><br/>
                         <Input
                             variant={"underlined"}
@@ -24,12 +26,16 @@ function SignIn(props: { setVisability: Dispatch<SetStateAction<string>> }) {
                             label="Email"
                             placeholder="name@gmail.com"
                             className="SignIn-input"
+                            maxLength={28}
+                            title={"Max length 28"}
                         /><br/>
                         <Input
                             variant={"underlined"}
                             type="password"
                             label="Password"
                             className="SignIn-input"
+                            maxLength={16}
+                            title={"Max length 16"}
                         /><br/>
                     </div>
                     <Button radius={"sm"} className="SignIn-button" variant={"shadow"}>Register</Button><br/>
@@ -51,12 +57,16 @@ function LogIn(props: { setVisability: Dispatch<SetStateAction<string>> }) {
                         label="Email"
                         placeholder="name@gmail.com"
                         className="SignIn-input"
+                        maxLength={28}
+                        title={"Max length 28"}
                     /><br/>
                     <Input
                         variant={"underlined"}
                         type="password"
                         label="Password"
                         className="SignIn-input"
+                        maxLength={16}
+                        title={"Max length 16"}
                     /><br/>
                 </div>
                 <Button radius={"sm"} className="SignIn-button" variant={"shadow"}>Sign in</Button><br/>
