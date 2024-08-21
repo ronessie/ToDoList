@@ -1,14 +1,14 @@
 body {
     overflow: hidden;
 }
-.App-card {
+.SignIn-card {
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 5%;
 }
 
-.LogIn-button {
+.SignIn-button {
     margin-left: 10%;
     margin-right: 10%;
     background: linear-gradient(to top right, #ec4899, #f59e0b);
@@ -17,17 +17,17 @@ body {
     max-width: 80%;
 }
 
-.LogIn-items {
+.SignIn-items {
     margin-left: 10%;
     margin-right: 10%;
     max-width: 80%;
 }
 
-.LogIn-input {
+.SignIn-input {
 
 }
 
-.LogIn-text {
+.Rainbow-text {
     text-align: center;
     font-size: 30px;
     background: linear-gradient(to top right, #ec4899, #f59e0b);
@@ -35,4 +35,9 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: bold;
+}
+
+.SignIn-link {
+    text-align: center;
+    font-size: 14px;
 }
