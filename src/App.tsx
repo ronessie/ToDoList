@@ -7,36 +7,36 @@ import './App.css';
 
 function App() {
     const [visability, setVisability] = useState('logIn');
-    const [authData, setAuthData] = useState({
+    const [logInData, setLogInData] = useState({
         email: '',
         password: ''
     });
-    const [registrationData, setRegistrationData] = useState({
+    const [signInData, setSignInData] = useState({
         username: '',
         email: '',
         password: ''
     });
 
-    function handleAuthTextareaChange(fieldName: string, value: any) {
-        setAuthData(prevData => ({
+    function handleLogInTextareaChange(fieldName: string, value: any) {
+        setLogInData(prevData => ({
             ...prevData,
             [fieldName]: value,
         }));
     }
 
-    function handleRegTextareaChange(fieldName: string, value: any) {
-        setRegistrationData(prevData => ({
+    function handleSignInTextareaChange(fieldName: string, value: any) {
+        setSignInData(prevData => ({
             ...prevData,
             [fieldName]: value,
         }));
     }
 
     function validateSignInInputs() {
-        console.log(authData.password)
+        console.log(logInData.password)
     }
 
     function validateLogInInputs() {
-        console.log(authData.password)
+        console.log(signInData.password)
     }
 
     function SignIn(props: { setVisability: Dispatch<SetStateAction<string>> }) {
@@ -46,8 +46,8 @@ function App() {
                     <h1 className={"Rainbow-text"}>Registration</h1>
                     <div className="Auth-items">
                         <Input
-                            value={registrationData.username}
-                            onChange={(e) => handleRegTextareaChange("username", e.target.value)}
+                            value={signInData.username}
+                            onChange={(e) => handleSignInTextareaChange("username", e.target.value)}
                             variant={"underlined"}
                             type="username"
                             label="Username"
@@ -57,8 +57,8 @@ function App() {
                             title={"Max length 28"}
                         /><br/>
                         <Input
-                            value={registrationData.email}
-                            onChange={(e) => handleRegTextareaChange("email", e.target.value)}
+                            value={signInData.email}
+                            onChange={(e) => handleSignInTextareaChange("email", e.target.value)}
                             variant={"underlined"}
                             type="email"
                             label="Email"
@@ -68,8 +68,8 @@ function App() {
                             title={"Max length 28"}
                         /><br/>
                         <Input
-                            value={registrationData.password}
-                            onChange={(e) => handleRegTextareaChange("password", e.target.value)}
+                            value={signInData.password}
+                            onChange={(e) => handleSignInTextareaChange("password", e.target.value)}
                             variant={"underlined"}
                             type="password"
                             label="Password"
@@ -93,8 +93,8 @@ function App() {
                     <h1 className={"Rainbow-text"}>Authorization</h1>
                     <div className="Auth-items">
                         <Input
-                            value={authData.email}
-                            onChange={(e) => handleAuthTextareaChange("email", e.target.value)}
+                            value={logInData.email}
+                            onChange={(e) => handleLogInTextareaChange("email", e.target.value)}
                             variant={"underlined"}
                             type="email"
                             label="Email"
@@ -104,8 +104,8 @@ function App() {
                             title={"Max length 28"}
                         /><br/>
                         <Input
-                            value={authData.password}
-                            onChange={(e) => handleAuthTextareaChange("password", e.target.value)}
+                            value={logInData.password}
+                            onChange={(e) => handleLogInTextareaChange("password", e.target.value)}
                             variant={"underlined"}
                             type="password"
                             label="Password"
