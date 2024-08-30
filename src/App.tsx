@@ -32,10 +32,26 @@ function App() {
     }
 
     function validateSignInInputs() {
+        if (!signInData.password && !signInData.email && !signInData.username)
+        {
+
+        }
+        else
+        {
+            console.log("All fields are required")
+        }
         console.log(logInData.password)
     }
 
     function validateLogInInputs() {
+        if (!signInData.password && !signInData.email)
+        {
+
+        }
+        else
+        {
+            console.log("All fields are required")
+        }
         console.log(signInData.password)
     }
 
@@ -78,7 +94,8 @@ function App() {
                             title={"Max length 16"}
                         /><br/>
                     </div>
-                    <Button radius={"sm"} className="Auth-button" onClick={validateSignInInputs} variant={"shadow"}>Register</Button><br/>
+                    <Button radius={"sm"} className="Auth-button" onClick={validateSignInInputs}
+                            variant={"shadow"}>Register</Button><br/>
                     <div className={"Auth-link"}>Already have an account? <Link
                         onClick={() => props.setVisability('logIn')}>Log in</Link></div>
                 </CardBody>
