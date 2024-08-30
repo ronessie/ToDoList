@@ -6,7 +6,7 @@ import {Card, CardBody} from "@nextui-org/react";
 import './App.css';
 
 function App() {
-    const [visability, setVisability] = useState('logIn');
+    const [visibility, setVisibility] = useState('logIn');
     const [logInData, setLogInData] = useState({
         email: '',
         password: ''
@@ -32,24 +32,18 @@ function App() {
     }
 
     function validateSignInInputs() {
-        if (!signInData.password && !signInData.email && !signInData.username)
-        {
+        if (!signInData.password && !signInData.email && !signInData.username) {
 
-        }
-        else
-        {
+        } else {
             console.log("All fields are required")
         }
         console.log(logInData.password)
     }
 
     function validateLogInInputs() {
-        if (!signInData.password && !signInData.email)
-        {
+        if (!signInData.password && !signInData.email) {
 
-        }
-        else
-        {
+        } else {
             console.log("All fields are required")
         }
         console.log(signInData.password)
@@ -65,7 +59,7 @@ function App() {
                             value={signInData.username}
                             onChange={(e) => handleSignInTextareaChange("username", e.target.value)}
                             variant={"underlined"}
-                            type="username"
+                            type="text"
                             label="Username"
                             placeholder="name"
                             className="Auth-input"
@@ -142,8 +136,8 @@ function App() {
 
     return (
         <div className="App">
-            {visability === 'signIn' && <SignIn setVisability={setVisability}/>}
-            {visability === 'logIn' && <LogIn setVisability={setVisability}/>}
+            {visibility === 'signIn' && <SignIn setVisability={setVisibility}/>}
+            {visibility === 'logIn' && <LogIn setVisability={setVisibility}/>}
         </div>
     );
 }
