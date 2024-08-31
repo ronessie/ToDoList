@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import LogIn from './pages/LogIn';
 import reportWebVitals from './reportWebVitals';
 import {NextUIProvider} from "@nextui-org/react";
 
@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <NextUIProvider>
-            <App/>
+            <LogIn/>
         </NextUIProvider>
     </React.StrictMode>
 );
