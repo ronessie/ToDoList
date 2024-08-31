@@ -14,15 +14,10 @@ import {
 
 function Main() {
     const menuItems = [
-        "Profile",
-        "Dashboard",
-        "Activity",
-        "Analytics",
-        "System",
-        "Deployments",
-        "My Settings",
-        "Team Settings",
-        "Help & Feedback",
+        "Back to School",
+        "Wishlist",
+        "Plans",
+        "Products",
     ];
 
     return (
@@ -34,13 +29,13 @@ function Main() {
 
                 <NavbarContent className="sm:hidden pr-3" justify="center">
                     <NavbarBrand>
-                        <p className="font-bold text-inherit">ACME</p>
+                        <p className="font-bold text-inherit">To Do List</p>
                     </NavbarBrand>
                 </NavbarContent>
 
                 <NavbarContent className="hidden sm:flex gap-4" justify="center">
                     <NavbarBrand>
-                        <p className="font-bold text-inherit">ACME</p>
+                        <p className="font-bold text-inherit">To Do List</p>
                     </NavbarBrand>
                     <NavbarItem>
                         <Link color="foreground" href="#">

@@ -57,7 +57,7 @@ function LogIn() {
                             title={"Max length 16"}
                         /><br/>
                     </div>
-                    <Button radius={"sm"} className="Auth-button" onClick={validateLogInInputs} variant={"shadow"}>Sign
+                    <Button radius={"sm"} className="Auth-button" onClick={() => navigate("/Main")} variant={"shadow"}>Sign
                         in</Button><br/>
                     <div className={"Auth-link"}>Don't have an account yet? <Link onClick={() => navigate("/SignIn")}>Register now</Link></div>
                 </CardBody>
