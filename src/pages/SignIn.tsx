@@ -4,6 +4,7 @@ import {Input} from "@nextui-org/input";
 import {Link} from "@nextui-org/link";
 import {Card, CardBody} from "@nextui-org/react";
 import '../App.css';
+import {useNavigate} from "react-router-dom";
 
 function SignIn() {
     const [signInData, setSignInData] = useState({
@@ -11,6 +12,7 @@ function SignIn() {
         email: '',
         password: ''
     });
+    const navigate = useNavigate()
 
     function handleSignInTextareaChange(fieldName: string, value: any) {
         setSignInData(prevData => ({
@@ -69,7 +71,7 @@ function SignIn() {
                     </div>
                     <Button radius={"sm"} className="Auth-button" onClick={validateSignInInputs}
                             variant={"shadow"}>Register</Button><br/>
-                    <div className={"Auth-link"}>Already have an account? <Link>Log in</Link></div>
+                    <div className={"Auth-link"}>Already have an account? <Link onClick={() => navigate("/")}>Log in</Link></div>
                 </CardBody>
             </Card>
         </div>
