@@ -1,12 +1,16 @@
-import React, {useMemo, useState} from 'react';
+import React, {useState} from 'react';
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
 import {Link} from "@nextui-org/link";
 import {Card, CardBody} from "@nextui-org/react";
 import '../App.css';
 import {useNavigate} from "react-router-dom";
+import {EyeFilledIcon} from "../images/EyeFilledIcon";
+import {EyeSlashFilledIcon} from "../images/EyeSlashFilledIcon";
 
 function LogIn() {
+    const [isVisible, setIsVisible] = React.useState(false);
+    const toggleVisibility = () => setIsVisible(!isVisible);
     const [logInData, setLogInData] = useState({
         email: '',
         password: ''
@@ -50,7 +54,17 @@ function LogIn() {
                             value={logInData.password}
                             onChange={(e) => handleLogInTextareaChange("password", e.target.value)}
                             variant={"underlined"}
-                            type="password"
+                            endContent={
+                                <button className="focus:outline-none" type="button" onClick={toggleVisibility}
+                                        aria-label="toggle password visibility">
+                                    {isVisible ? (
+                                        <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none"/>
+                                    ) : (
+                                        <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none"/>
+                                    )}
+                                </button>
+                            }
+                            type={isVisible ? "text" : "password"}
                             label="Password"
                             className="Auth-input"
                             maxLength={16}
@@ -59,7 +73,8 @@ function LogIn() {
                     </div>
                     <Button radius={"sm"} className="Auth-button" onClick={() => navigate("/Main")} variant={"shadow"}>Sign
                         in</Button><br/>
-                    <div className={"Auth-link"}>Don't have an account yet? <Link onClick={() => navigate("/SignIn")}>Register now</Link></div>
+                    <div className={"Auth-link"}>Don't have an account yet? <Link onClick={() => navigate("/SignIn")}>Register
+                        now</Link></div>
                 </CardBody>
             </Card>
         </div>

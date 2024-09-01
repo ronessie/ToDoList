@@ -5,8 +5,12 @@ import {Link} from "@nextui-org/link";
 import {Card, CardBody} from "@nextui-org/react";
 import '../App.css';
 import {useNavigate} from "react-router-dom";
+import {EyeFilledIcon} from "../images/EyeFilledIcon";
+import {EyeSlashFilledIcon} from "../images/EyeSlashFilledIcon";
 
 function SignIn() {
+    const [isVisible, setIsVisible] = React.useState(false);
+    const toggleVisibility = () => setIsVisible(!isVisible);
     const [signInData, setSignInData] = useState({
         username: '',
         email: '',
@@ -62,7 +66,17 @@ function SignIn() {
                             value={signInData.password}
                             onChange={(e) => handleSignInTextareaChange("password", e.target.value)}
                             variant={"underlined"}
-                            type="password"
+                            endContent={
+                                <button className="focus:outline-none" type="button" onClick={toggleVisibility}
+                                        aria-label="toggle password visibility">
+                                    {isVisible ? (
+                                        <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none"/>
+                                    ) : (
+                                        <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none"/>
+                                    )}
+                                </button>
+                            }
+                            type={isVisible ? "text" : "password"}
                             label="Password"
                             className="Auth-input"
                             maxLength={16}
