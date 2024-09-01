@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
 import {Link} from "@nextui-org/link";
-import {Card, CardBody} from "@nextui-org/react";
+import {Card, CardBody, Popover, PopoverContent, PopoverTrigger} from "@nextui-org/react";
 import '../App.css';
 import {useNavigate} from "react-router-dom";
 import {EyeFilledIcon} from "../images/EyeFilledIcon";
@@ -10,11 +10,15 @@ import {EyeSlashFilledIcon} from "../images/EyeSlashFilledIcon";
 
 function LogIn() {
     const [isVisible, setIsVisible] = React.useState(false);
+    const [isOpen, setIsOpen] = React.useState(false);
     const toggleVisibility = () => setIsVisible(!isVisible);
+    const toggleOpen = () => setIsOpen(!isOpen);
+
     const [logInData, setLogInData] = useState({
         email: '',
         password: ''
     });
+    const validateEmail = (value: any) => value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
     const navigate = useNavigate()
 
     function handleLogInTextareaChange(fieldName: string, value: any) {
@@ -26,11 +30,13 @@ function LogIn() {
 
     function validateLogInInputs() {
         if (!logInData.password && !logInData.email) {
-
-        } else {
             console.log("All fields are required")
+            return
         }
-        console.log(logInData.password)
+        if (!validateEmail(logInData.email)) {
+            console.log("Email not valid")
+            return;
+        }
     }
 
     return (
@@ -43,6 +49,7 @@ function LogIn() {
                             value={logInData.email}
                             onChange={(e) => handleLogInTextareaChange("email", e.target.value)}
                             variant={"underlined"}
+                            errorMessage="Please enter a valid email"
                             type="email"
                             label="Email"
                             placeholder="name@gmail.com"
@@ -71,10 +78,21 @@ function LogIn() {
                             title={"Max length 16"}
                         /><br/>
                     </div>
-                    <Button radius={"sm"} className="Auth-button" onClick={() => navigate("/Main")} variant={"shadow"}>Sign
+                    <Button radius={"sm"} className="Auth-button" /*onClick={() => navigate("/Main")}*/
+                            onClick={validateLogInInputs} variant={"shadow"}>Sign
                         in</Button><br/>
                     <div className={"Auth-link"}>Don't have an account yet? <Link onClick={() => navigate("/SignIn")}>Register
                         now</Link></div>
+                    <Popover placement="top" isOpen={isOpen}>
+                        <PopoverTrigger/>
+                        <PopoverContent>
+                            <div className="px-1 py-2">
+                                <Button onClick={toggleOpen}>Close</Button>
+                                <div className="text-small font-bold">Popover Content</div>
+                                <div className="text-tiny">This is the popover content</div>
+                            </div>
+                        </PopoverContent>
+                    </Popover>
                 </CardBody>
             </Card>
         </div>

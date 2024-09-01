@@ -16,6 +16,8 @@ function SignIn() {
         email: '',
         password: ''
     });
+
+    const validateEmail = (value: any) => value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
     const navigate = useNavigate()
 
     function handleSignInTextareaChange(fieldName: string, value: any) {
@@ -27,11 +29,13 @@ function SignIn() {
 
     function validateSignInInputs() {
         if (!signInData.password && !signInData.email && !signInData.username) {
-
-        } else {
             console.log("All fields are required")
+            return
         }
-        console.log(signInData.password)
+        if (!validateEmail(signInData.email)) {
+            console.log("Email not valid")
+            return;
+        }
     }
 
     return (
@@ -57,6 +61,7 @@ function SignIn() {
                             variant={"underlined"}
                             type="email"
                             label="Email"
+                            errorMessage="Please enter a valid email"
                             placeholder="name@gmail.com"
                             className="Auth-input"
                             maxLength={28}
@@ -83,9 +88,10 @@ function SignIn() {
                             title={"Max length 16"}
                         /><br/>
                     </div>
-                    <Button radius={"sm"} className="Auth-button" onClick={() => navigate("/Main")}
+                    <Button radius={"sm"} className="Auth-button" /*onClick={() => navigate("/Main")}*/ onClick={validateSignInInputs}
                             variant={"shadow"}>Register</Button><br/>
-                    <div className={"Auth-link"}>Already have an account? <Link onClick={() => navigate("/")}>Log in</Link></div>
+                    <div className={"Auth-link"}>Already have an account? <Link onClick={() => navigate("/")}>Log
+                        in</Link></div>
                 </CardBody>
             </Card>
         </div>

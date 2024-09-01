@@ -36,7 +36,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <React.StrictMode>
-        <App /> {/* Оборачиваем все в один главный компонент */}
+        <App />
     </React.StrictMode>
 );
 
