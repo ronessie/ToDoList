@@ -47,3 +47,41 @@ body {
     color: white;
     font-size: 18px;
 }
+
+.closeModal {
+    position: absolute;
+    /*top: 10px;*/
+    right: 7px;
+    width: 15px;
+    height: 15px;
+    opacity: 0.2;
+    cursor: pointer;
+    transition: opacity ease 0.5s;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.closeModal::before,
+.closeModal::after {
+    content: '';
+    position: absolute;
+    /*top: 10px;*/
+    display: block;
+    width: 15px;
+    height: 3px;
+    background: #000;
+}
+
+.closeModal::before {
+    transform: rotate(45deg);
+}
+
+.closeModal::after {
+    transform: rotate(-45deg);
+}
+
+.Inf-popover {
+    width: 300px;
+}

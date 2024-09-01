@@ -44,7 +44,7 @@ function LogIn() {
 
     function InfPopover() {
         return (
-            <Popover placement="top" isOpen={isOpen}>
+            <Popover className={"Inf-popover"} placement="top" isOpen={isOpen} backdrop={"opaque"}>
                 <PopoverTrigger>
                     <Button radius={"sm"} className="Auth-button"
                             onClick={validateLogInInputs} variant={"shadow"}>Sign
@@ -52,9 +52,9 @@ function LogIn() {
                 </PopoverTrigger>
                 <PopoverContent>
                     <div className="px-1 py-2">
-                        <Button onClick={toggleOpen}>Close</Button>
-                        <div className="text-small font-bold">Popover Content</div>
-                        <div className="text-tiny">This is the popover content</div>
+                        <div onClick={toggleOpen} className="closeModal"></div>
+                        <div className="text-small font-bold">Warning!</div>
+                        <div className="text-tiny">All fields are required</div>
                     </div>
                 </PopoverContent>
             </Popover>
