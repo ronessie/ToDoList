@@ -30,13 +30,35 @@ function LogIn() {
 
     function validateLogInInputs() {
         if (!logInData.password && !logInData.email) {
+            toggleOpen()
             console.log("All fields are required")
             return
         }
         if (!validateEmail(logInData.email)) {
             console.log("Email not valid")
             return;
+        } else {
+            navigate("/Main")
         }
+    }
+
+    function InfPopover() {
+        return (
+            <Popover placement="top" isOpen={isOpen}>
+                <PopoverTrigger>
+                    <Button radius={"sm"} className="Auth-button"
+                            onClick={validateLogInInputs} variant={"shadow"}>Sign
+                        in</Button>
+                </PopoverTrigger>
+                <PopoverContent>
+                    <div className="px-1 py-2">
+                        <Button onClick={toggleOpen}>Close</Button>
+                        <div className="text-small font-bold">Popover Content</div>
+                        <div className="text-tiny">This is the popover content</div>
+                    </div>
+                </PopoverContent>
+            </Popover>
+        )
     }
 
     return (
@@ -78,23 +100,13 @@ function LogIn() {
                             title={"Max length 16"}
                         /><br/>
                     </div>
-                    <Button radius={"sm"} className="Auth-button" /*onClick={() => navigate("/Main")}*/
-                            onClick={validateLogInInputs} variant={"shadow"}>Sign
-                        in</Button><br/>
+                    <InfPopover/>
+                    <br/>
                     <div className={"Auth-link"}>Don't have an account yet? <Link onClick={() => navigate("/SignIn")}>Register
                         now</Link></div>
-                    <Popover placement="top" isOpen={isOpen}>
-                        <PopoverTrigger/>
-                        <PopoverContent>
-                            <div className="px-1 py-2">
-                                <Button onClick={toggleOpen}>Close</Button>
-                                <div className="text-small font-bold">Popover Content</div>
-                                <div className="text-tiny">This is the popover content</div>
-                            </div>
-                        </PopoverContent>
-                    </Popover>
                 </CardBody>
             </Card>
+
         </div>
     );
 }

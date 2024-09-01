@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
 import {Link} from "@nextui-org/link";
-import {Card, CardBody} from "@nextui-org/react";
+import {Card, CardBody, Popover, PopoverContent, PopoverTrigger} from "@nextui-org/react";
 import '../App.css';
 import {useNavigate} from "react-router-dom";
 import {EyeFilledIcon} from "../images/EyeFilledIcon";
@@ -10,7 +10,10 @@ import {EyeSlashFilledIcon} from "../images/EyeSlashFilledIcon";
 
 function SignIn() {
     const [isVisible, setIsVisible] = React.useState(false);
+    const [isOpen, setIsOpen] = React.useState(false);
+
     const toggleVisibility = () => setIsVisible(!isVisible);
+    const toggleOpen = () => setIsOpen(!isOpen);
     const [signInData, setSignInData] = useState({
         username: '',
         email: '',
@@ -29,13 +32,34 @@ function SignIn() {
 
     function validateSignInInputs() {
         if (!signInData.password && !signInData.email && !signInData.username) {
+            toggleOpen()
             console.log("All fields are required")
             return
         }
         if (!validateEmail(signInData.email)) {
             console.log("Email not valid")
             return;
+        } else {
+            navigate("/Main")
         }
+    }
+
+    function InfPopover() {
+        return (
+            <Popover placement="top" isOpen={isOpen}>
+                <PopoverTrigger>
+                    <Button radius={"sm"} className="Auth-button" onClick={validateSignInInputs}
+                            variant={"shadow"}>Register</Button>
+                </PopoverTrigger>
+                <PopoverContent>
+                    <div className="px-1 py-2">
+                        <Button onClick={toggleOpen}>Close</Button>
+                        <div className="text-small font-bold">Popover Content</div>
+                        <div className="text-tiny">This is the popover content</div>
+                    </div>
+                </PopoverContent>
+            </Popover>
+        )
     }
 
     return (
@@ -88,8 +112,7 @@ function SignIn() {
                             title={"Max length 16"}
                         /><br/>
                     </div>
-                    <Button radius={"sm"} className="Auth-button" /*onClick={() => navigate("/Main")}*/ onClick={validateSignInInputs}
-                            variant={"shadow"}>Register</Button><br/>
+                    <InfPopover/><br/>
                     <div className={"Auth-link"}>Already have an account? <Link onClick={() => navigate("/")}>Log
                         in</Link></div>
                 </CardBody>
