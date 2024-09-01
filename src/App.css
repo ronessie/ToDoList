@@ -41,3 +41,9 @@ body {
     font-size: 14px;
     cursor: default;
 }
+
+.Setting-button {
+    background: linear-gradient(to top right, #ec4899, #f59e0b);
+    color: white;
+    font-size: 18px;
+}

@@ -9,6 +9,7 @@ import {useIntegration} from "@telegram-apps/react-router-integration";
 import {Router, Route, Routes} from "react-router-dom";
 import SignIn from "./pages/SignIn";
 import Main from "./pages/Main";
+import Settings from "./pages/Settings";
 
 function App() {
     const navigator = useMemo(() => initNavigator('app-navigation-state'), []);
@@ -21,6 +22,7 @@ function App() {
                 <Routes>
                     <Route path={"/"} element={<LogIn />} />
                     <Route path={"/Main"} element={<Main />} />
+                    <Route path={"/Settings"} element={<Settings />} />
                     <Route path={"/SignIn"} element={<SignIn />} />
                 </Routes>
             </Router>
