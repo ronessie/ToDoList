@@ -31,7 +31,7 @@ function SignIn() {
     }
 
     function validateSignInInputs() {
-        if (!signInData.password && !signInData.email && !signInData.username) {
+        if (!signInData.password || !signInData.email || !signInData.username) {
             toggleOpen()
             console.log("All fields are required")
             return
