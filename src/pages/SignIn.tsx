@@ -19,6 +19,10 @@ function SignIn() {
         email: '',
         password: ''
     });
+    const [popoverData, setPopoverData] = useState({
+        title: '',
+        text: ''
+    });
 
     const validateEmail = (value: any) => value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
     const navigate = useNavigate()
@@ -29,14 +33,25 @@ function SignIn() {
             [fieldName]: value,
         }));
     }
+    function handlePopoverDataChange(fieldName: string, value: any) {
+        setPopoverData(prevData => ({
+            ...prevData,
+            [fieldName]: value,
+        }));
+    }
 
     function validateSignInInputs() {
         if (!signInData.password || !signInData.email || !signInData.username) {
+            handlePopoverDataChange("title","Warning!")
+            handlePopoverDataChange("text","All fields are required")
             toggleOpen()
             console.log("All fields are required")
             return
         }
         if (!validateEmail(signInData.email)) {
+            handlePopoverDataChange("title","Warning!")
+            handlePopoverDataChange("text","Email not valid")
+            toggleOpen()
             console.log("Email not valid")
             return;
         } else {
@@ -54,8 +69,8 @@ function SignIn() {
                 <PopoverContent>
                     <div className="px-1 py-2">
                         <div onClick={toggleOpen} className="closeModal"></div>
-                        <div className="text-small font-bold">Warning!</div>
-                        <div className="text-tiny">All fields are required</div>
+                        <div>{popoverData.title}</div>
+                        <div>{popoverData.text}</div>
                     </div>
                 </PopoverContent>
             </Popover>

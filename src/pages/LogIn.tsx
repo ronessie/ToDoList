@@ -18,6 +18,10 @@ function LogIn() {
         email: '',
         password: ''
     });
+    const [popoverData, setPopoverData] = useState({
+        title: '',
+        text: ''
+    });
     const validateEmail = (value: any) => value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
     const navigate = useNavigate()
 
@@ -27,14 +31,25 @@ function LogIn() {
             [fieldName]: value,
         }));
     }
+    function handlePopoverDataChange(fieldName: string, value: any) {
+        setPopoverData(prevData => ({
+            ...prevData,
+            [fieldName]: value,
+        }));
+    }
 
     function validateLogInInputs() {
         if (!logInData.password || !logInData.email) {
+            handlePopoverDataChange("title","Warning!")
+            handlePopoverDataChange("text","All fields are required")
             toggleOpen()
             console.log("All fields are required")
             return
         }
         if (!validateEmail(logInData.email)) {
+            handlePopoverDataChange("title","Warning!")
+            handlePopoverDataChange("text","Email not valid")
+            toggleOpen()
             console.log("Email not valid")
             return;
         } else {
@@ -42,9 +57,9 @@ function LogIn() {
         }
     }
 
-    function InfPopover() {
+    function ErrorPopover() {
         return (
-            <Popover className={"Inf-popover"} placement="top" isOpen={isOpen} backdrop={"opaque"}>
+            <Popover className={"Error-popover"} placement="top" isOpen={isOpen} backdrop={"opaque"}>
                 <PopoverTrigger>
                     <Button radius={"sm"} className="Auth-button"
                             onClick={validateLogInInputs} variant={"shadow"}>Sign
@@ -53,8 +68,8 @@ function LogIn() {
                 <PopoverContent>
                     <div className="px-1 py-2">
                         <div onClick={toggleOpen} className="closeModal"></div>
-                        <div className="text-small font-bold">Warning!</div>
-                        <div className="text-tiny">All fields are required</div>
+                        <div>{popoverData.title}</div>
+                        <div>{popoverData.text}</div>
                     </div>
                 </PopoverContent>
             </Popover>
@@ -100,7 +115,7 @@ function LogIn() {
                             title={"Max length 16"}
                         /><br/>
                     </div>
-                    <InfPopover/>
+                    <ErrorPopover/>
                     <br/>
                     <div className={"Auth-link"}>Don't have an account yet? <Link onClick={() => navigate("/SignIn")}>Register
                         now</Link></div>
