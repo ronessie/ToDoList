@@ -54,7 +54,16 @@ function SignIn() {
             toggleOpen()
             console.log("Email not valid")
             return;
-        } else {
+        }
+        if (signInData.password.length<6)
+        {
+            handlePopoverDataChange("title","Warning!")
+            handlePopoverDataChange("text","Password must be at least 6 characters long")
+            toggleOpen()
+            console.log("Short password")
+            return;
+        }
+        else {
             navigate("/Main")
         }
     }
