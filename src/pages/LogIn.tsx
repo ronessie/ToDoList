@@ -29,7 +29,7 @@ function LogIn() {
     }
 
     function validateLogInInputs() {
-        if (!logInData.password && !logInData.email) {
+        if (!logInData.password || !logInData.email) {
             toggleOpen()
             console.log("All fields are required")
             return
