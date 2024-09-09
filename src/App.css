@@ -85,3 +85,8 @@ body {
 .Error-popover {
     width: 300px;
 }
+
+.pencil {
+    width: 2%;
+    height: 2%;
+}
