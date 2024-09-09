@@ -15,9 +15,10 @@ function Settings() {
         <div>
             <h1>hello settings</h1>
             <Link onClick={() => navigate(ROUTER_PATH.MAIN)}>back</Link>
-            <div><Input isDisabled={isDisabled} variant={"flat"} placeholder={"Name"} label={"Username"} type={"text"}
-                        labelPlacement={"outside-left"}/>
-                <img alt={"pencil-image"} onClick={toggleDisabled} className={"pencil"}
+            <div style={{display: "flex"}}>
+                <Input isDisabled={isDisabled} variant={"flat"} placeholder={"Name"} label={"Username"} type={"text"}
+                       labelPlacement={"outside-left"}/>
+                <img alt={"pencil-image"} onClick={toggleDisabled} className={"pencil-approve-icon"}
                      src={isDisabled ? '/icon-pencil.png' : '/icon-approve.png'}/></div>
             <switch className={"localization"}>
 
