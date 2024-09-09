@@ -7,10 +7,11 @@ import '../App.css';
 import {useNavigate} from "react-router-dom";
 import {EyeFilledIcon} from "../images/EyeFilledIcon";
 import {EyeSlashFilledIcon} from "../images/EyeSlashFilledIcon";
+import {ROUTER_PATH} from "../shared/constants";
 
 function LogIn() {
-    const [isVisible, setIsVisible] = React.useState(false);
-    const [isOpen, setIsOpen] = React.useState(false);
+    const [isVisible, setIsVisible] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const toggleVisibility = () => setIsVisible(!isVisible);
     const toggleOpen = () => setIsOpen(!isOpen);
 
@@ -53,7 +54,8 @@ function LogIn() {
             console.log("Email not valid")
             return;
         } else {
-            navigate("/Main")
+
+            navigate(ROUTER_PATH.MAIN)
         }
     }
 
@@ -117,7 +119,7 @@ function LogIn() {
                     </div>
                     <ErrorPopover/>
                     <br/>
-                    <div className={"Auth-link"}>Don't have an account yet? <Link onClick={() => navigate("/SignIn")}>Register
+                    <div className={"Auth-link"}>Don't have an account yet? <Link onClick={() => navigate(ROUTER_PATH.SIGN_IN)}>Register
                         now</Link></div>
                 </CardBody>
             </Card>

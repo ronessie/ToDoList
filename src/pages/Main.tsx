@@ -11,6 +11,7 @@ import {
     Button
 } from "@nextui-org/react";
 import {useNavigate} from "react-router-dom";
+import {ROUTER_PATH} from "../shared/constants";
 
 
 function Main() {
@@ -43,7 +44,7 @@ function Main() {
 
                 <NavbarContent justify="end">
                     <NavbarItem>
-                        <Button className="Setting-button" onClick={() => navigate("/Settings")} variant="flat">
+                        <Button className="Setting-button" onClick={() => navigate(ROUTER_PATH.SETTINGS)} variant="flat">
                             Settings
                         </Button>
                     </NavbarItem>
@@ -54,9 +55,6 @@ function Main() {
                         <NavbarMenuItem key={`${item}-${index}`}>
                             <Link
                                 className="w-full"
-                                // color={
-                                //     index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
-                                // }
                                 href="#"
                                 size="lg"
                             >

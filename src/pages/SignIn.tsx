@@ -7,10 +7,11 @@ import '../App.css';
 import {useNavigate} from "react-router-dom";
 import {EyeFilledIcon} from "../images/EyeFilledIcon";
 import {EyeSlashFilledIcon} from "../images/EyeSlashFilledIcon";
+import {ROUTER_PATH} from "../shared/constants";
 
 function SignIn() {
-    const [isVisible, setIsVisible] = React.useState(false);
-    const [isOpen, setIsOpen] = React.useState(false);
+    const [isVisible, setIsVisible] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const toggleVisibility = () => setIsVisible(!isVisible);
     const toggleOpen = () => setIsOpen(!isOpen);
@@ -64,7 +65,7 @@ function SignIn() {
             return;
         }
         else {
-            navigate("/Main")
+            navigate(ROUTER_PATH.MAIN)
         }
     }
 
@@ -137,7 +138,7 @@ function SignIn() {
                         /><br/>
                     </div>
                     <InfPopover/><br/>
-                    <div className={"Auth-link"}>Already have an account? <Link onClick={() => navigate("/")}>Log
+                    <div className={"Auth-link"}>Already have an account? <Link onClick={() => navigate(ROUTER_PATH.ROOT)}>Log
                         in</Link></div>
                 </CardBody>
             </Card>
