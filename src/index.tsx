@@ -10,6 +10,7 @@ import {Router, Route, Routes} from "react-router-dom";
 import SignIn from "./pages/SignIn";
 import Main from "./pages/Main";
 import Settings from "./pages/Settings";
+import {ROUTER_PATH} from "./shared/constants";
 
 function App() {
     const navigator = useMemo(() => initNavigator('app-navigation-state'), []);
@@ -20,10 +21,10 @@ function App() {
         <NextUIProvider>
             <Router location={location} navigator={reactNavigator}>
                 <Routes>
-                    <Route path={"/"} element={<LogIn />} />
-                    <Route path={"/Main"} element={<Main />} />
-                    <Route path={"/Settings"} element={<Settings />} />
-                    <Route path={"/SignIn"} element={<SignIn />} />
+                    <Route path={ROUTER_PATH.ROOT} element={<LogIn />} />
+                    <Route path={ROUTER_PATH.MAIN} element={<Main />} />
+                    <Route path={ROUTER_PATH.SETTINGS} element={<Settings />} />
+                    <Route path={ROUTER_PATH.SIGN_IN} element={<SignIn />} />
                 </Routes>
             </Router>
         </NextUIProvider>

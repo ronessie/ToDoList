@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
 import {Link} from "@nextui-org/link";
