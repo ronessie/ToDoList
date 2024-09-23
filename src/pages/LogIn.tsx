@@ -8,9 +8,9 @@ import {useNavigate} from "react-router-dom";
 import {EyeFilledIcon} from "../images/EyeFilledIcon";
 import {EyeSlashFilledIcon} from "../images/EyeSlashFilledIcon";
 import {ROUTER_PATH} from "../shared/constants";
-import { initInitData, initPopup, initMiniApp } from '@telegram-apps/sdk';
+import {initInitData, initPopup, initMiniApp, initViewport} from '@telegram-apps/sdk';
 
-function LogIn() {
+async function LogIn() {
     const [isVisible, setIsVisible] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const toggleVisibility = () => setIsVisible(!isVisible);
@@ -28,7 +28,12 @@ function LogIn() {
     const navigate = useNavigate()
     const initData = initInitData();//initData.user - инфа о пользователе который зашёл
     const [miniApp] = initMiniApp();//тут можно менять фон и цвет шапки
-    const popup = initPopup();
+    const popup = initPopup();//попсы тг
+    const [viewport] = initViewport();
+    const vp = await viewport;
+    if (!vp.isExpanded) {
+        vp.expand(); // растягивает приложение на весь экран
+    }
 
     function handleLogInTextareaChange(fieldName: string, value: any) {
         setLogInData(prevData => ({
@@ -58,11 +63,11 @@ function LogIn() {
             console.log("Email not valid")
             return;
         } else {
-            popup
-                .open({
-                    title: 'Hello!',
-                    message: 'Here is a test message.'})
-            //navigate(ROUTER_PATH.MAIN)
+            // popup
+            //     .open({
+            //         title: 'Hello!',
+            //         message: 'Here is a test message.'})
+            navigate(ROUTER_PATH.MAIN)
         }
     }
 
