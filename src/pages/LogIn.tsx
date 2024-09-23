@@ -8,6 +8,7 @@ import {useNavigate} from "react-router-dom";
 import {EyeFilledIcon} from "../images/EyeFilledIcon";
 import {EyeSlashFilledIcon} from "../images/EyeSlashFilledIcon";
 import {ROUTER_PATH} from "../shared/constants";
+import { initInitData, initPopup, initMiniApp } from '@telegram-apps/sdk';
 
 function LogIn() {
     const [isVisible, setIsVisible] = useState(false);
@@ -25,6 +26,9 @@ function LogIn() {
     });
     const validateEmail = (value: any) => value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
     const navigate = useNavigate()
+    const initData = initInitData();//initData.user - инфа о пользователе который зашёл
+    const [miniApp] = initMiniApp();//тут можно менять фон и цвет шапки
+    const popup = initPopup();
 
     function handleLogInTextareaChange(fieldName: string, value: any) {
         setLogInData(prevData => ({
@@ -54,8 +58,11 @@ function LogIn() {
             console.log("Email not valid")
             return;
         } else {
-
-            navigate(ROUTER_PATH.MAIN)
+            popup
+                .open({
+                    title: 'Hello!',
+                    message: 'Here is a test message.'})
+            //navigate(ROUTER_PATH.MAIN)
         }
     }
 
