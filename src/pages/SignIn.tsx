@@ -99,7 +99,6 @@ function SignIn() {
                             variant={"underlined"}
                             type="text"
                             label="Username"
-                            placeholder="name"
                             className="Auth-input"
                             maxLength={28}
                             title={"Max length 28"}
@@ -111,7 +110,6 @@ function SignIn() {
                             type="email"
                             label="Email"
                             errorMessage="Please enter a valid email"
-                            placeholder="name@gmail.com"
                             className="Auth-input"
                             maxLength={28}
                             title={"Max length 28"}

@@ -93,7 +93,6 @@ function LogIn() {
                             errorMessage="Please enter a valid email"
                             type="email"
                             label="Email"
-                            placeholder="name@gmail.com"
                             className="Auth-input"
                             maxLength={28}
                             title={"Max length 28"}
