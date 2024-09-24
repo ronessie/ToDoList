@@ -36,11 +36,12 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-    <React.StrictMode>
-        <main className="dark text-foreground bg-background">
+    <main className="dark">
+        <React.StrictMode>
             <App/>
-        </main>
-    </React.StrictMode>
-);
+        </React.StrictMode>
+    </main>
+)
+;
 
 reportWebVitals();
