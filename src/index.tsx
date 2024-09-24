@@ -21,10 +21,10 @@ function App() {
         <NextUIProvider>
             <Router location={location} navigator={reactNavigator}>
                 <Routes>
-                    <Route path={ROUTER_PATH.ROOT} element={<LogIn />} />
-                    <Route path={ROUTER_PATH.MAIN} element={<Main />} />
-                    <Route path={ROUTER_PATH.SETTINGS} element={<Settings />} />
-                    <Route path={ROUTER_PATH.SIGN_IN} element={<SignIn />} />
+                    <Route path={ROUTER_PATH.ROOT} element={<LogIn/>}/>
+                    <Route path={ROUTER_PATH.MAIN} element={<Main/>}/>
+                    <Route path={ROUTER_PATH.SETTINGS} element={<Settings/>}/>
+                    <Route path={ROUTER_PATH.SIGN_IN} element={<SignIn/>}/>
                 </Routes>
             </Router>
         </NextUIProvider>
@@ -37,7 +37,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <React.StrictMode>
-        <App />
+        <main className="dark text-foreground bg-background">
+            <App/>
+        </main>
     </React.StrictMode>
 );
 
