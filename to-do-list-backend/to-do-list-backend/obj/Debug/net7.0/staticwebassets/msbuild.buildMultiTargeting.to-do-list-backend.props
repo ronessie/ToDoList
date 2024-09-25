@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\to-do-list-backend.props" />
+</Project>
