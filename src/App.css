@@ -1,7 +1,8 @@
 body {
-    overflow: hidden;
+    padding: 0;
+    margin: 0;
     height: 100vh;
-    background: radial-gradient(158.31% 243.1% at -87.76% -20.23%, #373FE2 0.17%, #000000 100%);
+    background: radial-gradient(170.31% 253.1% at -77.76% -10.23%, #373FE2 0.17%, #000000 100%);
 }
 .Auth-card {
     width: 90%;
@@ -42,6 +43,7 @@ body {
     text-align: center;
     font-size: 14px;
     cursor: default;
+    color: white;
 }
 
 .Setting-button {

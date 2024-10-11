@@ -66,7 +66,7 @@ function LogIn() {
             <Popover className={"Error-popover"} placement="top" isOpen={isOpen} backdrop={"opaque"}>
                 <PopoverTrigger>
                     <Button radius={"sm"} className="Auth-button"
-                            onClick={validateLogInInputs} variant={"shadow"}>Sign
+                            onClick={validateLogInInputs}>Sign
                         in</Button>
                 </PopoverTrigger>
                 <PopoverContent>
