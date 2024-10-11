@@ -135,7 +135,7 @@ function SignIn() {
                         /><br/>
                     </div>
                     <InfPopover/><br/>
-                    <div className={"Auth-link"}>Already have an account? <Link onClick={() => navigate(ROUTER_PATH.ROOT)}>Log
+                    <div className={"Auth-link"}>Already have an account? <Link style={{color:'#2E35B8'}} onClick={() => navigate(ROUTER_PATH.ROOT)}>Log
                         in</Link></div>
                 </CardBody>
             </Card>

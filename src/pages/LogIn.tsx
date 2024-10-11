@@ -120,7 +120,7 @@ function LogIn() {
                     </div>
                     <ErrorPopover/>
                     <br/>
-                    <div className={"Auth-link"}>Don't have an account yet? <Link onClick={() => navigate(ROUTER_PATH.SIGN_IN)}>Register
+                    <div className={"Auth-link"}>Don't have an account yet? <Link style={{color:'#2E35B8'}} onClick={() => navigate(ROUTER_PATH.SIGN_IN)}>Register
                         now</Link></div>
                 </CardBody>
             </Card>
