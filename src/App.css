@@ -1,17 +1,22 @@
 body {
     overflow: hidden;
+    height: 100vh;
+    background: radial-gradient(158.31% 243.1% at -87.76% -20.23%, #373FE2 0.17%, #000000 100%);
 }
 .Auth-card {
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 5%;
+    background-color: rgba(248,255,247,0);
+    border: 1px solid #1F2569;
+    border-radius: 20px;
 }
 
 .Auth-button {
     margin-left: 10%;
     margin-right: 10%;
-    background: linear-gradient(to top right, #ec4899, #f59e0b);
+    background: #2E35B8;
     color: white;
     font-size: 18px;
     max-width: 80%;
@@ -29,10 +34,7 @@ body {
     margin-top: 10px;
     text-align: center;
     font-size: 30px;
-    background: linear-gradient(to top right, #ec4899, #f59e0b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: white;
     font-weight: bold;
 }
 
