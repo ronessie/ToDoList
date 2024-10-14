@@ -37,9 +37,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <React.StrictMode>
-        <main className="dark text-foreground bg-background">
+        {/*<main className="dark text-foreground bg-background">*/}
             <App/>
-        </main>
+        {/*</main>*/}
     </React.StrictMode>
 )
 ;
