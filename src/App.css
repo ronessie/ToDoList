@@ -55,7 +55,16 @@
 /*    font-size: 18px;*/
 /*}*/
 body {
-    height: 100%;
+    background-size: contain;
+    /*height: 100%;*/
+}
+
+.auth-inputs {
+    width: 80%;
+}
+
+.auth-button {
+    width: 80%;
 }
 
 .closeModal {

@@ -66,7 +66,7 @@ function LogIn() {
         return (
             <Popover className={"Error-popover"} placement="top" isOpen={isOpen} backdrop={"opaque"}>
                 <PopoverTrigger>
-                    <Button radius={"sm"} className="Auth-button"
+                    <Button radius={"sm"} className="auth-button"
                             onClick={validateLogInInputs}>Sign
                         in</Button>
                 </PopoverTrigger>
@@ -92,7 +92,7 @@ function LogIn() {
                     errorMessage="Please enter a valid email"
                     type="email"
                     label="Email"
-                    className="Auth-input"
+                    className="auth-inputs"
                     maxLength={28}
                     title={"Max length 28"}
                 /><br/>
@@ -112,7 +112,7 @@ function LogIn() {
                     }
                     type={isVisible ? "text" : "password"}
                     label="Password"
-                    className="Auth-input"
+                    className="auth-inputs"
                     maxLength={16}
                     title={"Max length 16"}
                 /><br/>

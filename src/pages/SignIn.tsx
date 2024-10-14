@@ -72,7 +72,7 @@ function SignIn() {
         return (
             <Popover className={"Inf-popover"} placement="top" isOpen={isOpen} backdrop={"opaque"}>
                 <PopoverTrigger>
-                    <Button radius={"sm"} className="Auth-button" onClick={validateSignInInputs}>Register</Button>
+                    <Button radius={"sm"} className="auth-button" onClick={validateSignInInputs}>Register</Button>
                 </PopoverTrigger>
                 <PopoverContent>
                     <div className="px-1 py-2">
@@ -95,7 +95,7 @@ function SignIn() {
                     variant={"underlined"}
                     type="text"
                     label="Username"
-                    className="Auth-input"
+                    className="auth-inputs"
                     maxLength={28}
                     title={"Max length 28"}
                 /><br/>
@@ -106,7 +106,7 @@ function SignIn() {
                     type="email"
                     label="Email"
                     errorMessage="Please enter a valid email"
-                    className="Auth-input"
+                    className="auth-inputs"
                     maxLength={28}
                     title={"Max length 28"}
                 /><br/>
@@ -126,7 +126,7 @@ function SignIn() {
                     }
                     type={isVisible ? "text" : "password"}
                     label="Password"
-                    className="Auth-input"
+                    className="auth-inputs"
                     maxLength={16}
                     title={"Max length 16"}
                 /><br/>
