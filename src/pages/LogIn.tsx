@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
 import {Link} from "@nextui-org/link";
-import {Card, CardBody, Popover, PopoverContent, PopoverTrigger} from "@nextui-org/react";
+import {Popover, PopoverContent, PopoverTrigger} from "@nextui-org/react";
 import '../App.css';
 import {useNavigate} from "react-router-dom";
 import {EyeFilledIcon} from "../images/EyeFilledIcon";
@@ -35,6 +35,7 @@ function LogIn() {
             [fieldName]: value,
         }));
     }
+
     function handlePopoverDataChange(fieldName: string, value: any) {
         setPopoverData(prevData => ({
             ...prevData,
@@ -44,15 +45,15 @@ function LogIn() {
 
     function validateLogInInputs() {
         if (!logInData.password || !logInData.email) {
-            handlePopoverDataChange("title","Warning!")
-            handlePopoverDataChange("text","All fields are required")
+            handlePopoverDataChange("title", "Warning!")
+            handlePopoverDataChange("text", "All fields are required")
             toggleOpen()
             console.log("All fields are required")
             return
         }
         if (!validateEmail(logInData.email)) {
-            handlePopoverDataChange("title","Warning!")
-            handlePopoverDataChange("text","Email not valid")
+            handlePopoverDataChange("title", "Warning!")
+            handlePopoverDataChange("text", "Email not valid")
             toggleOpen()
             console.log("Email not valid")
             return;
@@ -82,49 +83,44 @@ function LogIn() {
 
     return (
         <div className="App">
-            <Card className="Auth-card">
-                <CardBody>
-                    <h1 className={"Rainbow-text"}>Authorization</h1>
-                    <div className="Auth-items">
-                        <Input
-                            value={logInData.email}
-                            onChange={(e) => handleLogInTextareaChange("email", e.target.value)}
-                            variant={"underlined"}
-                            errorMessage="Please enter a valid email"
-                            type="email"
-                            label="Email"
-                            className="Auth-input"
-                            maxLength={28}
-                            title={"Max length 28"}
-                        /><br/>
-                        <Input
-                            value={logInData.password}
-                            onChange={(e) => handleLogInTextareaChange("password", e.target.value)}
-                            variant={"underlined"}
-                            endContent={
-                                <button className="focus:outline-none" type="button" onClick={toggleVisibility}
-                                        aria-label="toggle password visibility">
-                                    {isVisible ? (
-                                        <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none"/>
-                                    ) : (
-                                        <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none"/>
-                                    )}
-                                </button>
-                            }
-                            type={isVisible ? "text" : "password"}
-                            label="Password"
-                            className="Auth-input"
-                            maxLength={16}
-                            title={"Max length 16"}
-                        /><br/>
-                    </div>
-                    <ErrorPopover/>
-                    <br/>
-                    <div className={"Auth-link"}>Don't have an account yet? <Link style={{color:'#2E35B8'}} onClick={() => navigate(ROUTER_PATH.SIGN_IN)}>Register
-                        now</Link></div>
-                </CardBody>
-            </Card>
-
+            <h1 className={"Rainbow-text"}>Authorization</h1>
+            <div className="Auth-items">
+                <Input
+                    value={logInData.email}
+                    onChange={(e) => handleLogInTextareaChange("email", e.target.value)}
+                    variant={"underlined"}
+                    errorMessage="Please enter a valid email"
+                    type="email"
+                    label="Email"
+                    className="Auth-input"
+                    maxLength={28}
+                    title={"Max length 28"}
+                /><br/>
+                <Input
+                    value={logInData.password}
+                    onChange={(e) => handleLogInTextareaChange("password", e.target.value)}
+                    variant={"underlined"}
+                    endContent={
+                        <button className="focus:outline-none" type="button" onClick={toggleVisibility}
+                                aria-label="toggle password visibility">
+                            {isVisible ? (
+                                <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none"/>
+                            ) : (
+                                <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none"/>
+                            )}
+                        </button>
+                    }
+                    type={isVisible ? "text" : "password"}
+                    label="Password"
+                    className="Auth-input"
+                    maxLength={16}
+                    title={"Max length 16"}
+                /><br/>
+            </div>
+            <ErrorPopover/>
+            <br/>
+            <div className={"Auth-link"}>Don't have an account yet? <Link onClick={() => navigate(ROUTER_PATH.SIGN_IN)}>Register
+                now</Link></div>
         </div>
     );
 }

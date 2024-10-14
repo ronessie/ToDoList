@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
 import {Link} from "@nextui-org/link";
-import {Card, CardBody, Popover, PopoverContent, PopoverTrigger} from "@nextui-org/react";
+import {Popover, PopoverContent, PopoverTrigger} from "@nextui-org/react";
 import '../App.css';
 import {useNavigate} from "react-router-dom";
 import {EyeFilledIcon} from "../images/EyeFilledIcon";
@@ -34,6 +34,7 @@ function SignIn() {
             [fieldName]: value,
         }));
     }
+
     function handlePopoverDataChange(fieldName: string, value: any) {
         setPopoverData(prevData => ({
             ...prevData,
@@ -43,28 +44,26 @@ function SignIn() {
 
     function validateSignInInputs() {
         if (!signInData.password || !signInData.email || !signInData.username) {
-            handlePopoverDataChange("title","Warning!")
-            handlePopoverDataChange("text","All fields are required")
+            handlePopoverDataChange("title", "Warning!")
+            handlePopoverDataChange("text", "All fields are required")
             toggleOpen()
             console.log("All fields are required")
             return
         }
         if (!validateEmail(signInData.email)) {
-            handlePopoverDataChange("title","Warning!")
-            handlePopoverDataChange("text","Email not valid")
+            handlePopoverDataChange("title", "Warning!")
+            handlePopoverDataChange("text", "Email not valid")
             toggleOpen()
             console.log("Email not valid")
             return;
         }
-        if (signInData.password.length<6)
-        {
-            handlePopoverDataChange("title","Warning!")
-            handlePopoverDataChange("text","Password must be at least 6 characters long")
+        if (signInData.password.length < 6) {
+            handlePopoverDataChange("title", "Warning!")
+            handlePopoverDataChange("text", "Password must be at least 6 characters long")
             toggleOpen()
             console.log("Short password")
             return;
-        }
-        else {
+        } else {
             navigate(ROUTER_PATH.MAIN)
         }
     }
@@ -88,57 +87,53 @@ function SignIn() {
 
     return (
         <div className="App">
-            <Card className="Auth-card">
-                <CardBody>
-                    <h1 className={"Rainbow-text"}>Registration</h1>
-                    <div className="Auth-items">
-                        <Input
-                            value={signInData.username}
-                            onChange={(e) => handleSignInTextareaChange("username", e.target.value)}
-                            variant={"underlined"}
-                            type="text"
-                            label="Username"
-                            className="Auth-input"
-                            maxLength={28}
-                            title={"Max length 28"}
-                        /><br/>
-                        <Input
-                            value={signInData.email}
-                            onChange={(e) => handleSignInTextareaChange("email", e.target.value)}
-                            variant={"underlined"}
-                            type="email"
-                            label="Email"
-                            errorMessage="Please enter a valid email"
-                            className="Auth-input"
-                            maxLength={28}
-                            title={"Max length 28"}
-                        /><br/>
-                        <Input
-                            value={signInData.password}
-                            onChange={(e) => handleSignInTextareaChange("password", e.target.value)}
-                            variant={"underlined"}
-                            endContent={
-                                <button className="focus:outline-none" type="button" onClick={toggleVisibility}
-                                        aria-label="toggle password visibility">
-                                    {isVisible ? (
-                                        <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none"/>
-                                    ) : (
-                                        <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none"/>
-                                    )}
-                                </button>
-                            }
-                            type={isVisible ? "text" : "password"}
-                            label="Password"
-                            className="Auth-input"
-                            maxLength={16}
-                            title={"Max length 16"}
-                        /><br/>
-                    </div>
-                    <InfPopover/><br/>
-                    <div className={"Auth-link"}>Already have an account? <Link style={{color:'#2E35B8'}} onClick={() => navigate(ROUTER_PATH.ROOT)}>Log
-                        in</Link></div>
-                </CardBody>
-            </Card>
+            <h1 className={"Rainbow-text"}>Registration</h1>
+            <div className="Auth-items">
+                <Input
+                    value={signInData.username}
+                    onChange={(e) => handleSignInTextareaChange("username", e.target.value)}
+                    variant={"underlined"}
+                    type="text"
+                    label="Username"
+                    className="Auth-input"
+                    maxLength={28}
+                    title={"Max length 28"}
+                /><br/>
+                <Input
+                    value={signInData.email}
+                    onChange={(e) => handleSignInTextareaChange("email", e.target.value)}
+                    variant={"underlined"}
+                    type="email"
+                    label="Email"
+                    errorMessage="Please enter a valid email"
+                    className="Auth-input"
+                    maxLength={28}
+                    title={"Max length 28"}
+                /><br/>
+                <Input
+                    value={signInData.password}
+                    onChange={(e) => handleSignInTextareaChange("password", e.target.value)}
+                    variant={"underlined"}
+                    endContent={
+                        <button className="focus:outline-none" type="button" onClick={toggleVisibility}
+                                aria-label="toggle password visibility">
+                            {isVisible ? (
+                                <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none"/>
+                            ) : (
+                                <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none"/>
+                            )}
+                        </button>
+                    }
+                    type={isVisible ? "text" : "password"}
+                    label="Password"
+                    className="Auth-input"
+                    maxLength={16}
+                    title={"Max length 16"}
+                /><br/>
+            </div>
+            <InfPopover/><br/>
+            <div className={"Auth-link"}>Already have an account? <Link onClick={() => navigate(ROUTER_PATH.ROOT)}>Log
+                in</Link></div>
         </div>
     );
 }
