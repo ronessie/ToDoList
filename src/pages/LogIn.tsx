@@ -84,7 +84,7 @@ function LogIn() {
     return (
         <div className="App">
             <h1 className={"Rainbow-text"}>Authorization</h1>
-            <div className="Auth-items">
+            <div className="auth-items">
                 <Input
                     value={logInData.email}
                     onChange={(e) => handleLogInTextareaChange("email", e.target.value)}

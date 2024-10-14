@@ -59,12 +59,15 @@ body {
     /*height: 100%;*/
 }
 
-.auth-inputs {
+.auth-items {
     width: 80%;
+    margin-left: 10%;
+}
+
+.auth-inputs {
 }
 
 .auth-button {
-    width: 80%;
 }
 
 .closeModal {
