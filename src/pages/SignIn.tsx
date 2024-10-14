@@ -72,7 +72,7 @@ function SignIn() {
         return (
             <Popover className={"Inf-popover"} placement="top" isOpen={isOpen} backdrop={"opaque"}>
                 <PopoverTrigger>
-                    <Button radius={"sm"} className="auth-button" onClick={validateSignInInputs}>Register</Button>
+                    <Button radius={"sm"} className="auth-items" onClick={validateSignInInputs}>Register</Button>
                 </PopoverTrigger>
                 <PopoverContent>
                     <div className="px-1 py-2">
@@ -87,8 +87,8 @@ function SignIn() {
 
     return (
         <div className="App">
-            <h1 className={"Rainbow-text"}>Registration</h1>
             <div className="auth-items">
+                <h1 className={"auth-text"}>Registration</h1>
                 <Input
                     value={signInData.username}
                     onChange={(e) => handleSignInTextareaChange("username", e.target.value)}
@@ -130,10 +130,10 @@ function SignIn() {
                     maxLength={16}
                     title={"Max length 16"}
                 /><br/>
+                <InfPopover/><br/>
+                <div className={"Auth-link"}>Already have an account? <Link onClick={() => navigate(ROUTER_PATH.ROOT)}>Log
+                    in</Link></div>
             </div>
-            <InfPopover/><br/>
-            <div className={"Auth-link"}>Already have an account? <Link onClick={() => navigate(ROUTER_PATH.ROOT)}>Log
-                in</Link></div>
         </div>
     );
 }

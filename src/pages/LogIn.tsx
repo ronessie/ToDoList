@@ -66,7 +66,7 @@ function LogIn() {
         return (
             <Popover className={"Error-popover"} placement="top" isOpen={isOpen} backdrop={"opaque"}>
                 <PopoverTrigger>
-                    <Button radius={"sm"} className="auth-button"
+                    <Button radius={"sm"} className="auth-items"
                             onClick={validateLogInInputs}>Sign
                         in</Button>
                 </PopoverTrigger>
@@ -83,8 +83,8 @@ function LogIn() {
 
     return (
         <div className="App">
-            <h1 className={"Rainbow-text"}>Authorization</h1>
             <div className="auth-items">
+                <h1 className={"auth-text"}>Authorization</h1>
                 <Input
                     value={logInData.email}
                     onChange={(e) => handleLogInTextareaChange("email", e.target.value)}
@@ -116,11 +116,12 @@ function LogIn() {
                     maxLength={16}
                     title={"Max length 16"}
                 /><br/>
+                <ErrorPopover/>
+                <br/>
+                <div className={"Auth-link"}>Don't have an account yet? <Link
+                    onClick={() => navigate(ROUTER_PATH.SIGN_IN)}>Register
+                    now</Link></div>
             </div>
-            <ErrorPopover/>
-            <br/>
-            <div className={"Auth-link"}>Don't have an account yet? <Link onClick={() => navigate(ROUTER_PATH.SIGN_IN)}>Register
-                now</Link></div>
         </div>
     );
 }
