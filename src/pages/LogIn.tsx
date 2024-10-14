@@ -66,7 +66,7 @@ function LogIn() {
         return (
             <Popover className={"Error-popover"} placement="top" isOpen={isOpen} backdrop={"opaque"}>
                 <PopoverTrigger>
-                    <Button radius={"sm"} className="auth-items"
+                    <Button radius={"sm"} className=""
                             onClick={validateLogInInputs}>Sign
                         in</Button>
                 </PopoverTrigger>

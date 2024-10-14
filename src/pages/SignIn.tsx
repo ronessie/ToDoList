@@ -72,7 +72,7 @@ function SignIn() {
         return (
             <Popover className={"Inf-popover"} placement="top" isOpen={isOpen} backdrop={"opaque"}>
                 <PopoverTrigger>
-                    <Button radius={"sm"} className="auth-items" onClick={validateSignInInputs}>Register</Button>
+                    <Button radius={"sm"} className="" onClick={validateSignInInputs}>Register</Button>
                 </PopoverTrigger>
                 <PopoverContent>
                     <div className="px-1 py-2">
