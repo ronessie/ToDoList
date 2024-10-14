@@ -1,98 +1,98 @@
-body {
-    /*overflow: hidden;*/
-    padding: 0;
-    margin: 0;
-    height: 100vh;
-    /*background: radial-gradient(170.31% 253.1% at -77.76% -10.23%, #373FE2 0.17%, #000000 100%);*/
-    background: radial-gradient(438.29% 135.32% at -244.67% 90.84%, #373FE2 0.17%, #000000 100%);
+/*body {*/
+/*    !*overflow: hidden;*!*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*    height: 100vh;*/
+/*    !*background: radial-gradient(170.31% 253.1% at -77.76% -10.23%, #373FE2 0.17%, #000000 100%);*!*/
+/*    background: radial-gradient(438.29% 135.32% at -244.67% 90.84%, #373FE2 0.17%, #000000 100%);*/
 
-}
-.Auth-card {
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 5%;
-    background-color: rgba(248,255,247,0);
-    border: 1px solid #1F2569;
-    border-radius: 20px;
-}
+/*}*/
+/*.Auth-card {*/
+/*    width: 90%;*/
+/*    margin-left: 5%;*/
+/*    margin-right: 5%;*/
+/*    margin-top: 5%;*/
+/*    background-color: rgba(248,255,247,0);*/
+/*    border: 1px solid #1F2569;*/
+/*    border-radius: 20px;*/
+/*}*/
 
-.Auth-button {
-    margin-left: 10%;
-    margin-right: 10%;
-    background: #2E35B8;
-    color: white;
-    font-size: 18px;
-    max-width: 80%;
-    margin-bottom: -13px;
-}
+/*.Auth-button {*/
+/*    margin-left: 10%;*/
+/*    margin-right: 10%;*/
+/*    background: #2E35B8;*/
+/*    color: white;*/
+/*    font-size: 18px;*/
+/*    max-width: 80%;*/
+/*    margin-bottom: -13px;*/
+/*}*/
 
-.Auth-items {
-    margin-left: 10%;
-    margin-right: 10%;
-    max-width: 80%;
-}
+/*.Auth-items {*/
+/*    margin-left: 10%;*/
+/*    margin-right: 10%;*/
+/*    max-width: 80%;*/
+/*}*/
 
-.Rainbow-text {
-    margin-bottom: 10px;
-    margin-top: 10px;
-    text-align: center;
-    font-size: 30px;
-    color: white;
-    font-weight: bold;
-}
+/*.Rainbow-text {*/
+/*    margin-bottom: 10px;*/
+/*    margin-top: 10px;*/
+/*    text-align: center;*/
+/*    font-size: 30px;*/
+/*    color: white;*/
+/*    font-weight: bold;*/
+/*}*/
 
-.Auth-link {
-    text-align: center;
-    font-size: 14px;
-    cursor: default;
-    color: white;
-}
+/*.Auth-link {*/
+/*    text-align: center;*/
+/*    font-size: 14px;*/
+/*    cursor: default;*/
+/*    color: white;*/
+/*}*/
 
-.Setting-button {
-    background: linear-gradient(to top right, #ec4899, #f59e0b);
-    color: white;
-    font-size: 18px;
-}
+/*.Setting-button {*/
+/*    background: linear-gradient(to top right, #ec4899, #f59e0b);*/
+/*    color: white;*/
+/*    font-size: 18px;*/
+/*}*/
 
-.closeModal {
-    position: absolute;
-    /*top: 10px;*/
-    right: 7px;
-    width: 15px;
-    height: 15px;
-    opacity: 0.2;
-    cursor: pointer;
-    transition: opacity ease 0.5s;
+/*.closeModal {*/
+/*    position: absolute;*/
+/*    !*top: 10px;*!*/
+/*    right: 7px;*/
+/*    width: 15px;*/
+/*    height: 15px;*/
+/*    opacity: 0.2;*/
+/*    cursor: pointer;*/
+/*    transition: opacity ease 0.5s;*/
 
-    &:hover {
-        opacity: 1;
-    }
-}
+/*    &:hover {*/
+/*        opacity: 1;*/
+/*    }*/
+/*}*/
 
-.closeModal::before,
-.closeModal::after {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 15px;
-    height: 3px;
-    background: #000;
-}
+/*.closeModal::before,*/
+/*.closeModal::after {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    display: block;*/
+/*    width: 15px;*/
+/*    height: 3px;*/
+/*    background: #000;*/
+/*}*/
 
-.closeModal::before {
-    transform: rotate(45deg);
-}
+/*.closeModal::before {*/
+/*    transform: rotate(45deg);*/
+/*}*/
 
-.closeModal::after {
-    transform: rotate(-45deg);
-}
+/*.closeModal::after {*/
+/*    transform: rotate(-45deg);*/
+/*}*/
 
-.Error-popover {
-    width: 300px;
-}
+/*.Error-popover {*/
+/*    width: 300px;*/
+/*}*/
 
-.pencil-approve-icon {
-    width: 10%;
-    height: 10%;
-}
+/*.pencil-approve-icon {*/
+/*    width: 10%;*/
+/*    height: 10%;*/
+/*}*/
