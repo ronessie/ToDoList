@@ -55,8 +55,8 @@
 /*    font-size: 18px;*/
 /*}*/
 body {
-        padding: 0;
-        margin: 0;
+    padding: 0;
+    margin: 0;
     height: 100vh;
 }
 
@@ -69,12 +69,13 @@ body {
 }
 
 .auth-button {
-    width: 80%;
+    width: 100%;
 }
 
 .auth-text {
     font-size: 40px;
     text-align: center;
+    margin-top: 3%;
 }
 
 .closeModal {
