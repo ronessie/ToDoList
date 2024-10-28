@@ -1,9 +1,8 @@
 import '../App.css';
 import {useNavigate} from "react-router-dom";
-import {Link} from "@nextui-org/react";
 import {ROUTER_PATH} from "../shared/constants";
-import {Input} from "@nextui-org/input";
 import {useState} from "react";
+import {Input, NavLink} from "@mantine/core";
 
 
 function Settings() {
@@ -14,10 +13,9 @@ function Settings() {
     return (
         <div>
             <h1>hello settings</h1>
-            <Link onClick={() => navigate(ROUTER_PATH.MAIN)}>back</Link>
+            <NavLink onClick={() => navigate(ROUTER_PATH.MAIN)}>back</NavLink>
             <div style={{display: "flex"}}>
-                <Input isDisabled={isDisabled} variant={"flat"} placeholder={"Name"} label={"Username"} type={"text"}
-                       labelPlacement={"outside-left"}/>
+                <Input variant={"flat"} placeholder={"Name"} type={"text"}/>
                 <img alt={"pencil-image"} onClick={toggleDisabled} className={"pencil-approve-icon"}
                      src={isDisabled ? '/icon-pencil.png' : '/icon-approve.png'}/></div>
             <switch className={"localization"}>

@@ -1,14 +1,11 @@
 import {useState} from 'react';
-import {Button} from "@nextui-org/button";
-import {Input} from "@nextui-org/input";
-import {Link} from "@nextui-org/link";
-import {Popover, PopoverContent, PopoverTrigger} from "@nextui-org/react";
 import '../App.css';
 import {useNavigate} from "react-router-dom";
 import {EyeFilledIcon} from "../images/EyeFilledIcon";
 import {EyeSlashFilledIcon} from "../images/EyeSlashFilledIcon";
 import {ROUTER_PATH} from "../shared/constants";
 import {initInitData, initPopup, initMiniApp} from '@telegram-apps/sdk';
+import {Button, Input, NavLink, Popover} from "@mantine/core";
 
 function LogIn() {
     const [isVisible, setIsVisible] = useState(false);
@@ -64,20 +61,21 @@ function LogIn() {
 
     function ErrorPopover() {
         return (
-            <Popover className={"Error-popover"} placement="top" isOpen={isOpen} backdrop={"opaque"}>
-                <PopoverTrigger>
-                    <Button radius={"sm"} className="auth-button"
-                            onClick={validateLogInInputs}>Sign
-                        in</Button>
-                </PopoverTrigger>
-                <PopoverContent>
-                    <div className="px-1 py-2">
-                        <div onClick={toggleOpen} className="closeModal"></div>
-                        <div>{popoverData.title}</div>
-                        <div>{popoverData.text}</div>
-                    </div>
-                </PopoverContent>
-            </Popover>
+            <h1>Hi</h1>
+            // <Popover className={"Error-popover"} placement="top" isOpen={isOpen} backdrop={"opaque"}>
+            //     <PopoverTrigger>
+            //         <Button radius={"sm"} className="auth-button"
+            //                 onClick={validateLogInInputs}>Sign
+            //             in</Button>
+            //     </PopoverTrigger>
+            //     <PopoverContent>
+            //         <div className="px-1 py-2">
+            //             <div onClick={toggleOpen} className="closeModal"></div>
+            //             <div>{popoverData.title}</div>
+            //             <div>{popoverData.text}</div>
+            //         </div>
+            //     </PopoverContent>
+            // </Popover>
         )
     }
 
@@ -89,9 +87,7 @@ function LogIn() {
                     value={logInData.email}
                     onChange={(e) => handleLogInTextareaChange("email", e.target.value)}
                     variant={"underlined"}
-                    errorMessage="Please enter a valid email"
                     type="email"
-                    label="Email"
                     className="auth-inputs"
                     maxLength={28}
                     title={"Max length 28"}
@@ -100,27 +96,16 @@ function LogIn() {
                     value={logInData.password}
                     onChange={(e) => handleLogInTextareaChange("password", e.target.value)}
                     variant={"underlined"}
-                    endContent={
-                        <button className="focus:outline-none" type="button" onClick={toggleVisibility}
-                                aria-label="toggle password visibility">
-                            {isVisible ? (
-                                <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none"/>
-                            ) : (
-                                <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none"/>
-                            )}
-                        </button>
-                    }
                     type={isVisible ? "text" : "password"}
-                    label="Password"
                     className="auth-inputs"
                     maxLength={16}
                     title={"Max length 16"}
                 /><br/>
                 <ErrorPopover/>
                 <br/>
-                <div className={"auth-link"}>Don't have an account yet? <Link
+                <div className={"auth-link"}>Don't have an account yet? <NavLink
                     onClick={() => navigate(ROUTER_PATH.SIGN_IN)}>Register
-                    now</Link></div>
+                    now</NavLink></div>
             </div>
         </div>
     );

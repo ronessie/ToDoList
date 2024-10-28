@@ -1,9 +1,10 @@
 import React, {useMemo} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import '@mantine/core/styles.css';
 import LogIn from './pages/LogIn';
+import {MantineProvider} from '@mantine/core';
 import reportWebVitals from './reportWebVitals';
-import {NextUIProvider} from "@nextui-org/react";
 import {initNavigator} from "@telegram-apps/sdk-react";
 import {useIntegration} from "@telegram-apps/react-router-integration";
 import {Router, Route, Routes} from "react-router-dom";
@@ -14,11 +15,10 @@ import {ROUTER_PATH} from "./shared/constants";
 
 function App() {
     const navigator = useMemo(() => initNavigator('app-navigation-state'), []);
-
     const [location, reactNavigator] = useIntegration(navigator);
 
     return (
-        <NextUIProvider>
+        <MantineProvider defaultColorScheme="dark">
             <Router location={location} navigator={reactNavigator}>
                 <Routes>
                     <Route path={ROUTER_PATH.ROOT} element={<LogIn/>}/>
@@ -27,7 +27,7 @@ function App() {
                     <Route path={ROUTER_PATH.SIGN_IN} element={<SignIn/>}/>
                 </Routes>
             </Router>
-        </NextUIProvider>
+        </MantineProvider>
     );
 }
 
