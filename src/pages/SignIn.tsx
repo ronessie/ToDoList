@@ -1,10 +1,8 @@
 import {useState} from 'react';
 import '../App.css';
 import {useNavigate} from "react-router-dom";
-import {EyeFilledIcon} from "../images/EyeFilledIcon";
-import {EyeSlashFilledIcon} from "../images/EyeSlashFilledIcon";
 import {ROUTER_PATH} from "../shared/constants";
-import {Input, NavLink} from "@mantine/core";
+import {Anchor, Button, Input, Text} from "@mantine/core";
 
 function SignIn() {
     const [isVisible, setIsVisible] = useState(false);
@@ -65,58 +63,41 @@ function SignIn() {
         }
     }
 
-    function InfPopover() {
-        return (
-            <h1>Hi</h1>
-            // <Popover className={"Inf-popover"} placement="top" isOpen={isOpen} backdrop={"opaque"}>
-            //     <PopoverTrigger>
-            //         <Button radius={"sm"} className="auth-button" onClick={validateSignInInputs}>Register</Button>
-            //     </PopoverTrigger>
-            //     <PopoverContent>
-            //         <div className="px-1 py-2">
-            //             <div onClick={toggleOpen} className="closeModal"></div>
-            //             <div>{popoverData.title}</div>
-            //             <div>{popoverData.text}</div>
-            //         </div>
-            //     </PopoverContent>
-            // </Popover>
-        )
-    }
-
     return (
         <div className="App">
             <div className="auth-items">
-                <h1 className={"auth-text"}>Registration</h1>
+                <Text className={"auth-text"}>Registration</Text>
+                <Text>Input username:</Text>
                 <Input
                     value={signInData.username}
                     onChange={(e) => handleSignInTextareaChange("username", e.target.value)}
-                    variant={"underlined"}
                     type="text"
                     className="auth-inputs"
                     maxLength={28}
                     title={"Max length 28"}
                 /><br/>
+                <Text>Input email:</Text>
                 <Input
                     value={signInData.email}
                     onChange={(e) => handleSignInTextareaChange("email", e.target.value)}
-                    variant={"underlined"}
                     type="email"
                     className="auth-inputs"
                     maxLength={28}
                     title={"Max length 28"}
                 /><br/>
+                <Text>Input password:</Text>
                 <Input
                     value={signInData.password}
                     onChange={(e) => handleSignInTextareaChange("password", e.target.value)}
-                    variant={"underlined"}
                     type={isVisible ? "text" : "password"}
                     className="auth-inputs"
                     maxLength={16}
                     title={"Max length 16"}
                 /><br/>
-                <InfPopover/><br/>
-                <div className={"auth-link"}>Already have an account? <NavLink onClick={() => navigate(ROUTER_PATH.ROOT)}>Log
-                    in</NavLink></div>
+                <Button radius={"sm"} className="auth-button" onClick={validateSignInInputs}>Register</Button>
+                <br/>
+                <div className={"auth-link"}>Already have an account? <Anchor onClick={() => navigate(ROUTER_PATH.ROOT)}>Log
+                    in</Anchor></div>
             </div>
         </div>
     );

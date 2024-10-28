@@ -2,7 +2,7 @@ import '../App.css';
 import {useNavigate} from "react-router-dom";
 import {ROUTER_PATH} from "../shared/constants";
 import {useState} from "react";
-import {Input, NavLink} from "@mantine/core";
+import {Anchor, Input} from "@mantine/core";
 
 
 function Settings() {
@@ -13,7 +13,7 @@ function Settings() {
     return (
         <div>
             <h1>hello settings</h1>
-            <NavLink onClick={() => navigate(ROUTER_PATH.MAIN)}>back</NavLink>
+            <Anchor onClick={() => navigate(ROUTER_PATH.MAIN)}>back</Anchor>
             <div style={{display: "flex"}}>
                 <Input variant={"flat"} placeholder={"Name"} type={"text"}/>
                 <img alt={"pencil-image"} onClick={toggleDisabled} className={"pencil-approve-icon"}

@@ -1,11 +1,9 @@
 import {useState} from 'react';
 import '../App.css';
 import {useNavigate} from "react-router-dom";
-import {EyeFilledIcon} from "../images/EyeFilledIcon";
-import {EyeSlashFilledIcon} from "../images/EyeSlashFilledIcon";
 import {ROUTER_PATH} from "../shared/constants";
 import {initInitData, initPopup, initMiniApp} from '@telegram-apps/sdk';
-import {Button, Input, NavLink, Popover} from "@mantine/core";
+import {Anchor, Button, Input, Text} from "@mantine/core";
 
 function LogIn() {
     const [isVisible, setIsVisible] = useState(false);
@@ -59,53 +57,35 @@ function LogIn() {
         }
     }
 
-    function ErrorPopover() {
-        return (
-            <h1>Hi</h1>
-            // <Popover className={"Error-popover"} placement="top" isOpen={isOpen} backdrop={"opaque"}>
-            //     <PopoverTrigger>
-            //         <Button radius={"sm"} className="auth-button"
-            //                 onClick={validateLogInInputs}>Sign
-            //             in</Button>
-            //     </PopoverTrigger>
-            //     <PopoverContent>
-            //         <div className="px-1 py-2">
-            //             <div onClick={toggleOpen} className="closeModal"></div>
-            //             <div>{popoverData.title}</div>
-            //             <div>{popoverData.text}</div>
-            //         </div>
-            //     </PopoverContent>
-            // </Popover>
-        )
-    }
-
     return (
         <div className="App">
             <div className="auth-items">
-                <h1 className={"auth-text"}>Authorization</h1>
+                <Text className={"auth-text"}>Authorization</Text>
+                <Text>Input email:</Text>
                 <Input
                     value={logInData.email}
                     onChange={(e) => handleLogInTextareaChange("email", e.target.value)}
-                    variant={"underlined"}
                     type="email"
                     className="auth-inputs"
                     maxLength={28}
                     title={"Max length 28"}
                 /><br/>
+                <Text>Input password:</Text>
                 <Input
                     value={logInData.password}
                     onChange={(e) => handleLogInTextareaChange("password", e.target.value)}
-                    variant={"underlined"}
                     type={isVisible ? "text" : "password"}
                     className="auth-inputs"
                     maxLength={16}
                     title={"Max length 16"}
                 /><br/>
-                <ErrorPopover/>
+                <Button radius={"sm"} className="auth-button"
+                        onClick={validateLogInInputs}>Sign
+                    in</Button>
                 <br/>
-                <div className={"auth-link"}>Don't have an account yet? <NavLink
+                <div className={"auth-link"}>Don't have an account yet? <Anchor
                     onClick={() => navigate(ROUTER_PATH.SIGN_IN)}>Register
-                    now</NavLink></div>
+                    now</Anchor></div>
             </div>
         </div>
     );
