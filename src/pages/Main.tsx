@@ -4,6 +4,9 @@ import {ROUTER_PATH} from "../shared/constants";
 
 
 function Main() {
+    return (
+        <h1>Hi</h1>
+    )
     // const navigate = useNavigate()
     // const menuItems = [
     //     "Back to School",
