@@ -131,7 +131,7 @@ function SignIn() {
                     title={"Max length 16"}
                 /><br/>
                 <InfPopover/><br/>
-                <div className={"Auth-link"}>Already have an account? <Link onClick={() => navigate(ROUTER_PATH.ROOT)}>Log
+                <div className={"auth-link"}>Already have an account? <Link onClick={() => navigate(ROUTER_PATH.ROOT)}>Log
                     in</Link></div>
             </div>
         </div>

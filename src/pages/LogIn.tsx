@@ -118,7 +118,7 @@ function LogIn() {
                 /><br/>
                 <ErrorPopover/>
                 <br/>
-                <div className={"Auth-link"}>Don't have an account yet? <Link
+                <div className={"auth-link"}>Don't have an account yet? <Link
                     onClick={() => navigate(ROUTER_PATH.SIGN_IN)}>Register
                     now</Link></div>
             </div>

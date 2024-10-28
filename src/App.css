@@ -78,6 +78,10 @@ body {
     margin-top: 3%;
 }
 
+.auth-link {
+    text-align: center;
+}
+
 .closeModal {
     position: absolute;
     /*top: 10px;*/
