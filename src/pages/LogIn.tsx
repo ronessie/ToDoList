@@ -3,7 +3,7 @@ import '../App.css';
 import {useNavigate} from "react-router-dom";
 import {ROUTER_PATH} from "../shared/constants";
 import {initInitData, initPopup, initMiniApp} from '@telegram-apps/sdk';
-import {Anchor, Button, Input, Text} from "@mantine/core";
+import {Anchor, Button, Input, Text, TextInput} from "@mantine/core";
 
 function LogIn() {
     const [isVisible, setIsVisible] = useState(false);
@@ -61,8 +61,8 @@ function LogIn() {
         <div className="App">
             <div className="auth-items">
                 <Text className={"auth-text"}>Authorization</Text>
-                <Text>Input email:</Text>
-                <Input
+                <TextInput
+                    label="Input email:"
                     value={logInData.email}
                     onChange={(e) => handleLogInTextareaChange("email", e.target.value)}
                     type="email"
@@ -70,8 +70,8 @@ function LogIn() {
                     maxLength={28}
                     title={"Max length 28"}
                 /><br/>
-                <Text>Input password:</Text>
-                <Input
+                <TextInput
+                    label="Input password:"
                     value={logInData.password}
                     onChange={(e) => handleLogInTextareaChange("password", e.target.value)}
                     type={isVisible ? "text" : "password"}

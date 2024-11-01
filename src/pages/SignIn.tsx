@@ -2,7 +2,7 @@ import {useState} from 'react';
 import '../App.css';
 import {useNavigate} from "react-router-dom";
 import {ROUTER_PATH} from "../shared/constants";
-import {Anchor, Button, Input, Text} from "@mantine/core";
+import {Anchor, Button, Input, Text, TextInput} from "@mantine/core";
 
 function SignIn() {
     const [isVisible, setIsVisible] = useState(false);
@@ -67,8 +67,8 @@ function SignIn() {
         <div className="App">
             <div className="auth-items">
                 <Text className={"auth-text"}>Registration</Text>
-                <Text>Input username:</Text>
-                <Input
+                <TextInput
+                    label="Input username:"
                     value={signInData.username}
                     onChange={(e) => handleSignInTextareaChange("username", e.target.value)}
                     type="text"
@@ -76,8 +76,8 @@ function SignIn() {
                     maxLength={28}
                     title={"Max length 28"}
                 /><br/>
-                <Text>Input email:</Text>
-                <Input
+                <TextInput
+                    label="Input email:"
                     value={signInData.email}
                     onChange={(e) => handleSignInTextareaChange("email", e.target.value)}
                     type="email"
@@ -85,8 +85,8 @@ function SignIn() {
                     maxLength={28}
                     title={"Max length 28"}
                 /><br/>
-                <Text>Input password:</Text>
-                <Input
+                <TextInput
+                    label="Input password:"
                     value={signInData.password}
                     onChange={(e) => handleSignInTextareaChange("password", e.target.value)}
                     type={isVisible ? "text" : "password"}
